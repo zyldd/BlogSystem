@@ -1,0 +1,27 @@
+<div class="pages">
+ 
+    <!-- page：当前的页码值 --> 
+<!--<%= page %>-->
+<!-- 上一页不出现的条件：不是首页 -->
+    <% if( page > 1)  { %>
+        <a href="?page=<%= page - 1 %>"> 上一页 </a>
+    <% } %>
+
+    <% if(pages.length > 1){ %>
+        <% pages.forEach(function(p){ %> 
+            <a href="?page=<%= p %>" class="<%= page == p ? 'active':'' %>">
+                <%= p %>
+            </a>
+        <% }) %>
+    <% } %>
+
+<!-- 下一页不出现的条件：是最后一页 -->
+    <% if( pageTotal != page) {%>
+        <a href="?page=<%= page + 1 %>"> 下一页 </a>
+    <% } %>
+</div> 
+<!--1,2,3,4,5, <br>
+1,2,3,4,5, <br>
+1,2,3,4,5, <br>
+2,3,4,5,6 <br>
+3,4,5,6,7, <br>-->

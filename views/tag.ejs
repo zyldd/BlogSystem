@@ -1,0 +1,27 @@
+
+<% include header %>
+
+<!--<%= posts %>-->
+
+<!-- 设置最新文章的发布年份 -->
+<% var lastYear = 0 %>
+<div class="years">
+<% posts.forEach(function(post){  %>
+
+        <% if( lastYear != post.time.year ){ %>
+            <% lastYear = post.time.year %>
+
+            <h3> <%= post.time.year %> </h3>
+        <% } %>
+
+        <p style="margin:8px 0;">
+            <span style="color:#aaa;"> <%= post.time.day %> </span>
+            <a href="/u/<%= post.author %>/<%= post.time.day %>/<%= post.title %>" class="tag"> <%= post.title %> </a>
+        </p>
+
+
+<% }) %>
+</div>
+
+
+<% include footer %>

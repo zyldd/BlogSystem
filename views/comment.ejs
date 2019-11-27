@@ -1,0 +1,33 @@
+
+ 
+<div class="comment">
+    <% post.comments.forEach(function(comment){ %>
+        <div class="com">
+            <p> 
+                <a href=""> <%= comment.uname %> </a>
+                评论于 <%= comment.time.minute %>
+            </p>
+            <p style="margin-bottom:15px;">
+                <%= comment.content %>
+            </p>
+        </div>
+    <% }) %>
+</div>
+
+
+<form action="/comment/<%= post.author %>/<%= post.time.day %>/<%= post.title %>" method="post">
+
+    <% if(user){ %>
+        姓名: <input type="text" name="uname" value="<%= user.uname %>"> <br>
+        邮箱: <input type="text" name="email" value="<%= user.email%>"> <br>
+        网址: <input type="text" name="website" value="/u/<%= user.uname %>"> <br>
+    <% } else { %>
+        姓名: <input type="text" name="uname" > <br><br>
+        邮箱: <input type="text" name="email"  > <br><br>
+        网址: <input type="text" name="website" value="http://"> <br>
+    <% } %>
+        <textarea name="content"  cols="70" rows="3" required></textarea> <br>
+
+        <button type="submit">评论</button>
+
+</form>

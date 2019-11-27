@@ -1,0 +1,15 @@
+
+<% include header %>
+
+
+<section>
+    <p class="tags">
+        <% tags.forEach(function(tag){ %>
+            <% if(tag){ %>
+                <a href="/tags/<%= tag %>" class="tag"> <%= tag %> </a>
+            <% } %>
+        <% }) %>
+    </p>
+</section>
+
+<% include footer %>

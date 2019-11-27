@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+    var posts = [
+        { year:2018, title:'2018-第一篇' },
+        { year:2018, title:'2016-第二篇' },
+        { year:2017, title:'2017-第一篇' },
+        { year:2017, title:'2016-第二篇' },
+        { year:2016, title:'2016-第二篇' },
+        { year:2016, title:'2016-第一篇' },
+    ];
+
+    var lastYear = 2017;
+    posts.forEach(function(post){
+        if( lastYear != post.year ){
+            lastYear = post.year;
+            console.log(lastYear);
+        }
+        console.log(post.title);
+    })
+</script>
+</html>

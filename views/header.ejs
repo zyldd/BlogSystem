@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= title %></title>
+    <!-- 默认情况下，css文件放置在静态资源文件夹中
+        /css/style.css:  在静态资源文件夹中找到文件  -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <nav>
+        <ul>
+            <li>
+                <a href="/"> 首页 </a>
+            </li>
+            <li>
+                <a href="/storage"> 存档 </a>
+            </li>
+            <li>
+                <a href="/tags"> 标签 </a>
+            </li>
+            <% if(user){ %>
+            <li>
+                <a href=""> 上传 </a>
+            </li>
+            <li>
+                <a href="/fabu"> 发布 </a>
+            </li>
+            <li>
+                <a href="/tuichu"> 退出 </a>
+            </li>
+            <% } else {%>
+            <li>
+                <a href="/denglu"> 登录 </a>
+            </li>
+            <li>
+                <a href="/zhuce"> 注册 </a>
+            </li>
+            <% } %>
+            <li>
+                <form action="/search">
+                    <input type="search" name="search" placeholder="SEARCH">
+                </form>
+            </li>
+        </ul>
+    </nav>
+
+
+    <main>
+        <h1> <%= title %> </h1>
+
+        <% if(error){ %>
+            <p> <%= error %> </p>
+        <% } %>
+
+        <% if(success){ %>
+            <p> <%= success %> </p>
+        <% } %>
+        <div class="container">
+

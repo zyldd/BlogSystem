@@ -1,0 +1,39 @@
+
+
+<% include header %>
+
+<% if( posts.length <= 0 ){ %>
+
+    <h2> 没有文章显示，请添加 </h2>
+
+<% } else { %>
+
+
+    <% posts.forEach(function( post ){  %>
+
+        <section>
+            <h3> <a href="/u/<%= post.author %>/<%= post.time.day %>/<%= post.title %>"> <%= post.title %> </a> </h3>
+            <p class="info">
+                作者: <a href="/u/<%= post.author %>"> <%= post.author %>  </a> |
+                时间: <%= post.time.minute %> |
+                标签: <% post.tags.forEach(function(tag){  %>
+                          <% if(tag){ %>
+                            <a href="/tags/<%= tag %>" class="tag"> <%= tag %> </a>
+                          <% } %>
+                      <% }) %>
+            </p>
+            <p class="content">
+                <%= post.content %>
+            </p>
+            <p class="reads">
+                <span> 阅读: <%= post.reads %> </span> |
+                <span> 评论: <%= post.comments.length %> </span>
+            </p>
+        </section>
+    <% }) %>
+
+
+<% } %>
+
+<% include paging %>
+<% include footer %>
